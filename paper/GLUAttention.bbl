@@ -1,0 +1,48 @@
+\begin{thebibliography}{10}
+
+\bibitem{wangzehao2025gluattentiongithub}
+Wang Zehao.
+\newblock Glu attention github repository.
+\newblock \url{https://github.com/WangZehaoAI/GLU-Attention}, 2025.
+
+\bibitem{vaswani2023attentionneed}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need, 2023.
+
+\bibitem{shazeer2020gluvariantsimprovetransformer}
+Noam Shazeer.
+\newblock Glu variants improve transformer, 2020.
+
+\bibitem{grattafiori2024llama3herdmodels}
+Aaron~Grattafiori et~al.
+\newblock The llama 3 herd of models, 2024.
+
+\bibitem{dauphin2017languagemodelinggatedconvolutional}
+Yann~N. Dauphin, Angela Fan, Michael Auli, and David Grangier.
+\newblock Language modeling with gated convolutional networks, 2017.
+
+\bibitem{fukushima1975relu}
+Kunihiko Fukushima.
+\newblock Cognitron: A self-organizing multilayered neural network, 1975.
+
+\bibitem{elfwing2017sigmoidweightedlinearunitsneural}
+Stefan Elfwing, Eiji Uchibe, and Kenji Doya.
+\newblock Sigmoid-weighted linear units for neural network function approximation in reinforcement learning, 2017.
+
+\bibitem{dosovitskiy2021imageworth16x16words}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby.
+\newblock An image is worth 16x16 words: Transformers for image recognition at scale, 2021.
+
+\bibitem{dao2022flashattentionfastmemoryefficientexact}
+Tri Dao, Daniel~Y. Fu, Stefano Ermon, Atri Rudra, and Christopher Ré.
+\newblock Flashattention: Fast and memory-efficient exact attention with io-awareness, 2022.
+
+\bibitem{su2023roformerenhancedtransformerrotary}
+Jianlin Su, Yu~Lu, Shengfeng Pan, Ahmed Murtadha, Bo~Wen, and Yunfeng Liu.
+\newblock Roformer: Enhanced transformer with rotary position embedding, 2023.
+
+\bibitem{ainslie2023gqatraininggeneralizedmultiquery}
+Joshua Ainslie, James Lee-Thorp, Michiel de~Jong, Yury Zemlyanskiy, Federico Lebrón, and Sumit Sanghai.
+\newblock Gqa: Training generalized multi-query transformer models from multi-head checkpoints, 2023.
+
+\end{thebibliography}
