@@ -20,18 +20,23 @@ $$o=W_v(o)$$
 
 By this simple modification both training efficiency and model performance is boosted.
 
+---
 
-![Cifar-10 training loss of each epoch. The lower the better.](./paper/cifar10_train_loss.png "
-Cifar-10 training loss of each epoch. The lower the better.")
+![](./paper/cifar10_train_loss.png)
+<center>Cifar-10 training loss of each epoch. The lower the better.</center>
 
+---
 
-![Cifar-10 validation accuracy of each epoch. The higher the better.](./paper/cifar10_val_acc.png "Cifar-10 validation accuracy of each epoch. The higher the better.")
+![](./paper/cifar10_val_acc.png)
+<center>Cifar-10 validation accuracy of each epoch. The higher the better.</center>
 
+---
 
+![](./paper/wikitext2_train_loss.png)
+<center>wikitext2 training loss. The lower the better.</center>
 
-![wikitext2 training loss. The lower the better.](./paper/wikitext2_train_loss.png "wikitext2 training loss. The lower the better.")
+---
 
-
-![wikitext103 training loss. The lower the better.](./paper/wikitext103_train_loss.png "wikitext103 training loss. The lower the better.")
-
+![](./paper/wikitext103_train_loss.png)
+<center>wikitext103 training loss. The lower the better.</center>
 
