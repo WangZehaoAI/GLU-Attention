@@ -11,14 +11,26 @@ $$o=W_o(MHA(q,k,v))$$
 # GLU Multi-Head Attention
 $$q=W_q(q)$$
 $$k=W_k(k)$$
+$$v=W_v(v)$$
 $$v1,v2=split(v,dim=-1)$$
-$$v=W_v(v1*silu(v2))$$
+$$v=v1*silu(v2)$$
 $$o=W_o(MHA(q,k,v))$$
 
 By this simple modification both training efficiency and model performance is boosted.
 
+
 ![Cifar-10 training loss of each epoch. The lower the better.](./paper/cifar10_train_loss.png)
+Cifar-10 training loss of each epoch. The lower the better.
+
+
 ![Cifar-10 validation accuracy of each epoch. The higher the better.](./paper/cifar10_val_acc.png)
+Cifar-10 validation accuracy of each epoch. The higher the better.
+
+
 ![wikitext2 training loss. The lower the better.](./paper/wikitext2_train_loss.png)
+wikitext2 training loss. The lower the better.
+
+
 ![wikitext103 training loss. The lower the better.](./paper/wikitext103_train_loss.png)
+wikitext103 training loss. The lower the better.
 
