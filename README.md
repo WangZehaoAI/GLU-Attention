@@ -2,6 +2,8 @@ GLU Attention创新的把GLU机制引入Attention之中，增强了Transformer�
 
 GLU Attention provide nearly cost-free performance boost for transformers with a simple mechanism that applies Gated Linear Unit to the values in Attention.
 
+![Cifar-10 training loss](./paper/GLU_Attention.png)
+
 # Multi-Head Attention:
 $$q=W_q(q)$$
 $$k=W_k(k)$$
@@ -36,11 +38,11 @@ Cifar-10 validation accuracy of each epoch. The higher the better.
 
 ![wikitext2 training loss](./paper/wikitext2_train_loss.png)
 
-wikitext2 training loss. The lower the better.
+wikitext2 training loss for 10 epochs. The lower the better.
 
 ---
 
 ![wikitext103 training loss](./paper/wikitext103_train_loss.png)
 
-wikitext103 training loss. The lower the better.
+wikitext103 training loss for 1 epoch. The lower the better.
 

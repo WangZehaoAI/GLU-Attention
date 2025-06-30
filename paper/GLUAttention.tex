@@ -77,6 +77,12 @@ O = W_O(O')
 
 In Multi-Head Self-Attention, the same input $X$ is used for queries, keys, and values. $Q = K = V = X$
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{GLU_Attention.png}
+    \caption{MHA and GLU MHA algorithm}
+\end{figure}
+
 \section{Method}
 GLU Attention uses the projected value $V'$ as the intput of Equation (\ref{eq:glu}). The GLU Attention can be expressed as:
 
@@ -88,8 +94,6 @@ V' = GLU(W_V(V))
 By replacing Equation (\ref{eq:mha_v}) in MHA with Equation (\ref{eq:glu_v}), while keeping other components unchanged, we obtain GLU Multi-Head Attention. To maintain the same number of parameters and computational costs, we use 4/3 of the original $W_V$ matrix output dimension and 2/3 of the original $W_O$ matrix input dimension.
 
 \section{Experiments}
-
-
 
 \subsection{Models and Hyperparameters}
 

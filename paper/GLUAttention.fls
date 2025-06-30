@@ -196,6 +196,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmbc8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb8t.vf
+INPUT ./GLU_Attention.png
+INPUT ./GLU_Attention.png
+INPUT ./GLU_Attention.png
+INPUT ./GLU_Attention.png
+INPUT ./GLU_Attention.png
 INPUT ./cifar10_train_loss.png
 INPUT ./cifar10_train_loss.png
 INPUT ./cifar10_train_loss.png

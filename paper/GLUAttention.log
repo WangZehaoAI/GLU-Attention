@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.12)  17 JUN 2025 02:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.12)  30 JUN 2025 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -414,28 +414,36 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<cifar10_train_loss.png, id=85, 462.528pt x 346.896pt>
+<GLU_Attention.png, id=82, 967.615pt x 483.8075pt>
+File: GLU_Attention.png Graphic file (type png)
+<use GLU_Attention.png>
+Package pdftex.def Info: GLU_Attention.png  used on input line 82.
+(pdftex.def)             Requested size: 469.75499pt x 234.8752pt.
+<cifar10_train_loss.png, id=87, 462.528pt x 346.896pt>
 File: cifar10_train_loss.png Graphic file (type png)
 <use cifar10_train_loss.png>
-Package pdftex.def Info: cifar10_train_loss.png  used on input line 104.
+Package pdftex.def Info: cifar10_train_loss.png  used on input line 108.
 (pdftex.def)             Requested size: 230.18251pt x 172.63771pt.
-<cifar10_val_acc.png, id=87, 462.528pt x 346.896pt>
+<cifar10_val_acc.png, id=88, 462.528pt x 346.896pt>
 File: cifar10_val_acc.png Graphic file (type png)
 <use cifar10_val_acc.png>
-Package pdftex.def Info: cifar10_val_acc.png  used on input line 111.
+Package pdftex.def Info: cifar10_val_acc.png  used on input line 115.
 (pdftex.def)             Requested size: 230.18251pt x 172.63771pt.
- [2 <./cifar10_train_loss.png> <./cifar10_val_acc.png>]
-<wikitext2_train_loss.png, id=107, 462.528pt x 346.896pt>
+ [2 <./GLU_Attention.png>]
+<wikitext2_train_loss.png, id=106, 462.528pt x 346.896pt>
 File: wikitext2_train_loss.png Graphic file (type png)
 <use wikitext2_train_loss.png>
-Package pdftex.def Info: wikitext2_train_loss.png  used on input line 124.
+Package pdftex.def Info: wikitext2_train_loss.png  used on input line 128.
 (pdftex.def)             Requested size: 230.18251pt x 172.63771pt.
-<wikitext103_train_loss.png, id=108, 462.528pt x 346.896pt>
+<wikitext103_train_loss.png, id=107, 462.528pt x 346.896pt>
 File: wikitext103_train_loss.png Graphic file (type png)
 <use wikitext103_train_loss.png>
-Package pdftex.def Info: wikitext103_train_loss.png  used on input line 130.
+Package pdftex.def Info: wikitext103_train_loss.png  used on input line 134.
 (pdftex.def)             Requested size: 230.18251pt x 172.63771pt.
- (./GLUAttention.bbl [3 <./wikitext2_train_loss.png> <./wikitext103_train_loss.png>]) [4] (./GLUAttention.aux)
+
+Underfull \vbox (badness 2221) has occurred while \output is active []
+
+ [3 <./cifar10_train_loss.png> <./cifar10_val_acc.png> <./wikitext2_train_loss.png> <./wikitext103_train_loss.png>] (./GLUAttention.bbl) [4] (./GLUAttention.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -444,18 +452,18 @@ Package rerunfilecheck Info: File `GLUAttention.out' has not changed.
 (rerunfilecheck)             Checksum: 64C4EB413E92AAFE2B8828651397F271;1396.
  ) 
 Here is how much of TeX's memory you used:
- 12184 strings out of 474222
- 196779 string characters out of 5748733
+ 12192 strings out of 474222
+ 196954 string characters out of 5748733
  1937975 words of memory out of 5000000
- 34105 multiletter control sequences out of 15000+600000
+ 34112 multiletter control sequences out of 15000+600000
  603863 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,12n,93p,1114b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,12n,93p,1114b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on GLUAttention.pdf (4 pages, 233049 bytes).
+Output written on GLUAttention.pdf (4 pages, 249584 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 39029 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 39034 words of extra memory for PDF output out of 42996 (max. 10000000)
 
