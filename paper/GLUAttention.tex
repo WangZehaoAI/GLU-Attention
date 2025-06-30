@@ -100,7 +100,9 @@ By replacing Equation (\ref{eq:mha_v}) in MHA with Equation (\ref{eq:glu_v}), wh
 
 \subsection{Models and Hyperparameters}
 
-I conducted experiments using two Transformer models. The baseline model uses MHA, while the GLU Attention model uses GLU MHA. Each model consists of 1 embedding layer, 1 positional embedding layer, 6 transformer layers, and 1 linear layer for classification. Each transformer layer includes a self-attention layer and a GLU FFN layer, with 384 model dimensions and 8 attention heads. The linear layer shapes are designed to match those of classic transformers: (1:1) * 4 in MHA, and 1:(16/3) + (8/3):1 in GLU FFN.
+I conducted experiments using two Transformer models: a baseline model with standard Multi-Head Attention (MHA), and a GLU Attention model with GLU Multi-Head Attention (GLU MHA). Both models consist of one embedding layer, one positional embedding layer, six transformer layers, and one linear classification layer. Each transformer layer contains a self-attention mechanism and a GLU feed-forward network (GLU FFN), with a model dimension of 384 and 8 attention heads.
+
+To ensure a fair comparison, the projection and FFN linear layers are designed to match the number of parameters and FLOPs of classic transformers. In the GLU Attention model, the value projection layer has a shape of 384→512, and the output projection layer has a shape of 256→384, while other projection layers maintain a shape of 384→384. The GLU FFN consists of two linear layers: the first layer has a shape of 384→2048, and the second layer has a shape of 1024→384.
 
 \subsection{Cifar-10}
 
