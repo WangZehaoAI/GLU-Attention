@@ -7,7 +7,7 @@ $$q=W_q(q)$$
 $$k=W_k(k)$$
 $$v=W_v(v)$$
 $$o=MHA(q,k,v)$$
-$$o=W_v(o)$$
+$$o=W_o(o)$$
 
 # GLU Multi-Head Attention
 $$q=W_q(q)$$
@@ -16,7 +16,7 @@ $$v=W_v(v)$$
 $$v1,v2=split(v,dim=-1)$$
 $$v=v1*silu(v2)$$
 $$o=MHA(q,k,v)$$
-$$o=W_v(o)$$
+$$o=W_o(o)$$
 
 By this simple modification both training efficiency and model performance is boosted.
 
