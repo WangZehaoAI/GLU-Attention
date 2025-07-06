@@ -31,7 +31,7 @@ Gated Linear Units (GLU) have shown great potential in enhancing neural network 
 
 \section{Introduction}
 
-Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}. My study shows GLU Attention outperforms original MHA. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can improve model performance and convergence speed. GLU Attention is a simple yet effective enhancement to the Transformer architecture, improving both training efficiency and model performance.
+Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}. My study shows GLU Attention outperforms original MHA. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can significantly enhance both model performance and training efficiency, making GLU Attention a simple yet effective improvement to the Transformer architecture.
 
 \section{Backgrounds}
 
@@ -39,13 +39,14 @@ Transformer\cite{vaswani2023attentionneed} models have become the foundation of 
 
 GLU were first introduced to improve performance by introducing nonlinearity and has been successfully applied in various architectures, including convolutional neural networks (CNN)\cite{dauphin2017languagemodelinggatedconvolutional} and transformer FFN layer\cite{shazeer2020gluvariantsimprovetransformer}.
 
-GLU contains two inputs: a gate $g$ and a gated input $x$, along with one Rectified Linear Unit\cite{fukushima1975relu} such as $ReLU(x)=max(0,x)$ or $SiLU(x)=x*sigmoid(x)$. In this paper I use SiLU\cite{elfwing2017sigmoidweightedlinearunitsneural} as the Linear Unit, GLU is defined as:
+GLU contains two inputs: a gate $g$ and a gated input $x$, along with one Rectified Linear Unit\cite{fukushima1975relu} (ReLU) $ReLU(x)=max(0,x)$ or a ReLU like activation function such as Sigmoid-weighted Linear Unit (SiLU) $SiLU(x)=x*sigmoid(x)$. In this paper I use SiLU\cite{elfwing2017sigmoidweightedlinearunitsneural} as the activation function, GLU is defined as:
+
 
 
 \begin{equation}
 GLU(x,g) = x*SiLU(g)
 \end{equation}
-Or just split the last dimension of input $x$ into two parts, $x_1$ and $x_2$, and apply Rectified Linear Unit to $x_2$:
+Or just split the last dimension of input $x$ into two parts, $x_1$ and $x_2$, and apply SiLU to $x_2$:
 \begin{equation}
 x_1, x_2 = split(x,dim=-1)
 \end{equation}
@@ -94,15 +95,18 @@ V' = GLU(W_V(V))
 \label{eq:glu_v}
 \end{equation}
 
-By replacing Equation (\ref{eq:mha_v}) in MHA with Equation (\ref{eq:glu_v}), while keeping other components unchanged, we obtain GLU Multi-Head Attention. To maintain the same number of parameters and computational costs, we use 4/3 of the original $W_V$ matrix output dimension and 2/3 of the original $W_O$ matrix input dimension.
+By replacing Equation (\ref{eq:mha_v}) in MHA with Equation (\ref{eq:glu_v}), while keeping other components unchanged, we obtain GLU Multi-Head Attention.
 
 \section{Experiments}
 
 \subsection{Models and Hyperparameters}
 
-I conducted experiments using two Transformer models: a baseline model with standard Multi-Head Attention (MHA), and a GLU Attention model with GLU Multi-Head Attention (GLU MHA). Both models consist of one embedding layer, one positional embedding layer, six transformer layers, and one linear classification layer. Each transformer layer contains a self-attention mechanism and a GLU feed-forward network (GLU FFN), with a model dimension of 384 and 8 attention heads.
+I conducted experiments using two Transformer models: a baseline model with standard Multi-Head Attention (MHA), and a GLU Attention model with GLU Multi-Head Attention (GLU MHA). Both models consist of one embedding layer, one positional embedding layer, six transformer layers, and one classification layer. Each transformer layer contains a self-attention mechanism and a GLU feed-forward network (GLU FFN), with a model dimension of 384 and 8 attention heads.
 
-To ensure a fair comparison, the projection and FFN linear layers are designed to match the number of parameters and FLOPs of classic transformers. In the GLU Attention model, the value projection layer has a shape of 384→512, and the output projection layer has a shape of 256→384, while other projection layers maintain a shape of 384→384. The GLU FFN consists of two linear layers: the first layer has a shape of 384→2048, and the second layer has a shape of 1024→384.
+
+To ensure a fair comparison, the GLU MHA projection layers are designed to match the number of parameters and computational costs of classic MHA. In the GLU Attention model, the value projection layer has a shape of 384→512, and the output projection layer has a shape of 256→384, while other projection layers maintain a shape of 384→384.
+
+The GLU FFN consists of two linear layers: the first layer has a shape of 384→2048, and the second layer has a shape of 1024→384.
 
 \subsection{Cifar-10}
 
