@@ -31,9 +31,7 @@ Gated Linear Units (GLU) have shown great potential in enhancing neural network 
 
 \section{Introduction}
 
-Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}.
-
-My study shows GLU Attention outperforms original MHA in Language Model pre-training. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can improve convergence speed in Language Model pre-training, making GLU Attention a simple yet effective improvement to Language Transformers. In Cifar10 scale image datasets GLU Attention only improve early-stage convergence speed and performance, but was later surpassed as training progressed.
+Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}. My study shows GLU Attention outperforms original MHA in Language Model pre-training. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can improve convergence speed in Language Model pre-training, making GLU Attention a simple yet effective improvement to Language Transformers. In Cifar10 scale image datasets GLU Attention only improve early-stage convergence speed and performance, but was later surpassed as training progressed.
 
 \section{Backgrounds}
 
@@ -128,7 +126,7 @@ The GLU FFN consists of two linear layers: the first layer has a shape of 384→
 
 \subsection{WikiText-2}
 
-I trained these models from scratch on the WikiText-2 dataset which has 36,718 rows of token for language model pre-training, which is to predict the next token. I used the GPT-2 tokenizer to tokenize the text and applied the same training settings as in Cifar-10, except that the batch size was set to 1 and a causal mask was used to prevent the model from seeing future tokens. Training was conducted for 10 epochs. The results are shown in Figure \ref{fig:wikitext2_train_loss}. GLU Attention consistently outperformed the baseline model.
+I trained these models from scratch on the WikiText-2 dataset which has 36,718 rows of token for language model pre-training, which is to predict the next token. I used the GPT-2 tokenizer to tokenize the text. I use AdamW optimizer with a learning rate of 1e-4 and a cosine annealing scheduler. The batch size was set to 1 and a causal mask was used to prevent the model from seeing future tokens. Training was conducted for 10 epochs. The results are shown in Figure \ref{fig:wikitext2_train_loss}. GLU Attention consistently outperformed the baseline model.
 
 \subsection{WikiText-103}
 
