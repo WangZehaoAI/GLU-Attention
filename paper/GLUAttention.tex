@@ -25,13 +25,15 @@ Nanjing University \\
 
 \begin{abstract}
 
-Gated Linear Units (GLU) have shown great potential in enhancing neural network performance. In this paper, I introduce a novel attention mechanism called GLU Attention, which introduces nonlinearity into the values of Attention. My experiments demonstrate that GLU Attention improves both model performance and convergence speed across text and vision modalities with zero additional parameters and negligible computational costs. GLU Attention is lightweight and can seamlessly integrate with other technologies, such as Flash Attention, Rotary Position Embedding (RoPE), and various Multi-Head Attention (MHA) variants such as Grouped-Query Attention (GQA). This project is open-sourced at github\cite{wangzehao2025gluattentiongithub}.
+Gated Linear Units (GLU) have shown great potential in enhancing neural network performance. In this paper, I introduce a novel attention mechanism called GLU Attention, which introduces nonlinearity into the values of Attention. My experiments demonstrate that GLU Attention improves convergence speed in Language Model pre-training with zero additional parameters and negligible computational costs. GLU Attention is lightweight and can seamlessly integrate with other technologies, such as Flash Attention, Rotary Position Embedding (RoPE), and various Multi-Head Attention (MHA) variants such as Grouped-Query Attention (GQA). This project is open-sourced at github\cite{wangzehao2025gluattentiongithub}.
 \end{abstract}
 
 
 \section{Introduction}
 
-Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}. My study shows GLU Attention outperforms original MHA. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can significantly enhance both model performance and training efficiency, making GLU Attention a simple yet effective improvement to the Transformer architecture.
+Transformer\cite{vaswani2023attentionneed} models have become the foundation of modern artificial intelligence. Transformer is a sequence-to-sequence model that uses Attention layer to capture relationships between tokens and Feed Forward Network (FFN) layer to perform transformations on each token. GLU FFN\cite{shazeer2020gluvariantsimprovetransformer} outperforms the original FFN and has been adopted in popular open source Large Language Model (LLM) Llama 3\cite{grattafiori2024llama3herdmodels}.
+
+My study shows GLU Attention outperforms original MHA in Language Model pre-training. In MHA there is a softmax function introduce nonlinearity for querys and keys, but the values are projected by linear transformations. My study explores the integration of GLU nonlinearity into the values of MHA. Experiments show that adding GLU to MHA values can improve convergence speed in Language Model pre-training, making GLU Attention a simple yet effective improvement to Language Transformers. In Cifar10 scale image datasets GLU Attention only improve early-stage convergence speed and performance, but was later surpassed as training progressed.
 
 \section{Backgrounds}
 
@@ -103,32 +105,9 @@ By replacing Equation (\ref{eq:mha_v}) in MHA with Equation (\ref{eq:glu_v}), wh
 
 I conducted experiments using two Transformer models: a baseline model with standard Multi-Head Attention (MHA), and a GLU Attention model with GLU Multi-Head Attention (GLU MHA). Both models consist of one embedding layer, one positional embedding layer, six transformer layers, and one classification layer. Each transformer layer contains a self-attention mechanism and a GLU feed-forward network (GLU FFN), with a model dimension of 384 and 8 attention heads.
 
-
 To ensure a fair comparison, the GLU MHA projection layers are designed to match the number of parameters and computational costs of classic MHA. In the GLU Attention model, the value projection layer has a shape of 384→512, and the output projection layer has a shape of 256→384, while other projection layers maintain a shape of 384→384.
 
 The GLU FFN consists of two linear layers: the first layer has a shape of 384→2048, and the second layer has a shape of 1024→384.
-
-\subsection{Cifar-10}
-
-\begin{figure}[htbp]
-    \centering
-    \begin{minipage}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{cifar10_train_loss.png}
-        \caption{Cifar-10 training loss of each epoch. The lower the better.}
-        \label{fig:cifar10_train_loss}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.49\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{cifar10_val_acc.png}
-        \caption{Cifar-10 validation accuracy of each epoch. The higher the better.}
-        \label{fig:cifar10_val_acc}
-    \end{minipage}
-\end{figure}
-
-I trained these models from scratch on the Cifar-10 dataset, a widely used benchmark for image classification. The training dataset consists of 60,000 32x32 color images across 10 classes, while the validation set consists of 10,000 images. I followed the standard ViT\cite{dosovitskiy2021imageworth16x16words} procedure, dividing each 32x32x3 image into 64 patches of size 4x4x3. Training was conducted for 20 epochs with a batch size of 384. I used the AdamW optimizer with a learning rate of 1e-4 and a cosine annealing scheduler. The results are shown in Figure \ref{fig:cifar10_train_loss} and Figure \ref{fig:cifar10_val_acc}. GLU Attention consistently outperformed the baseline model.
-
 
 \begin{figure}[htbp]
     \centering
@@ -147,22 +126,40 @@ I trained these models from scratch on the Cifar-10 dataset, a widely used bench
     \hfill
 \end{figure}
 
-
 \subsection{WikiText-2}
 
-
-
-I also trained these models from scratch on the WikiText-2 dataset which has 36,718 rows of token for language model pre-training, which is to predict the next token. I used the GPT-2 tokenizer to tokenize the text and applied the same training settings as in Cifar-10, except that the batch size was set to 1 and a causal mask was used to prevent the model from seeing future tokens. Training was conducted for 10 epochs. The results are shown in Figure \ref{fig:wikitext2_train_loss}. GLU Attention consistently outperformed the baseline model.
+I trained these models from scratch on the WikiText-2 dataset which has 36,718 rows of token for language model pre-training, which is to predict the next token. I used the GPT-2 tokenizer to tokenize the text and applied the same training settings as in Cifar-10, except that the batch size was set to 1 and a causal mask was used to prevent the model from seeing future tokens. Training was conducted for 10 epochs. The results are shown in Figure \ref{fig:wikitext2_train_loss}. GLU Attention consistently outperformed the baseline model.
 
 \subsection{WikiText-103}
 
 Then I trained these models from scratch on the WikiText-103 dataset which has 1,801,350 rows of token using learning rate 1e-5 for 1 epoch. The results are shown in Figure \ref{fig:wikitext103_train_loss}. GLU Attention consistently outperformed the baseline model.
 
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{cifar10_train_loss.png}
+        \caption{Cifar-10 training loss of each epoch. The lower the better.}
+        \label{fig:cifar10_train_loss}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{cifar10_val_acc.png}
+        \caption{Cifar-10 validation accuracy of each epoch. The higher the better.}
+        \label{fig:cifar10_val_acc}
+    \end{minipage}
+\end{figure}
+
+\subsection{Cifar-10}
+
+I trained 10 models each from scratch on the Cifar-10 dataset, a widely used benchmark for image classification. The training dataset consists of 60,000 32x32 color images across 10 classes, while the validation set consists of 10,000 images. I followed the standard ViT\cite{dosovitskiy2021imageworth16x16words} procedure, dividing each 32x32x3 image into 64 patches of size 4x4x3. Training was conducted for 20 epochs with a batch size of 384. I used the AdamW optimizer with a learning rate of 1e-4 and a cosine annealing scheduler. The results are shown in Figure \ref{fig:cifar10_train_loss} and Figure \ref{fig:cifar10_val_acc}. GLU Attention outperformed the baseline model in the beginning, but was later surpassed as training progressed, with the baseline model eventually achieving higher validation accuracy. This indicates that GLU Attention only improve early-stage convergence speed and performance in image modality at Cifar10 scale.
+
+Then I repeat the experiment with wider value dimension 384 for the GLU Attention model, and 576 for the baseline model. The result shows the same. Then I repeat the experiment with larger learning rate 1e-3. The result shows the same.
+
 \section{Conclusion}
 
-GLU Attention offers a straightforward yet impactful improvement to the Transformer architecture. By introducing nonlinearity into the values of MHA, it enhances model performance and convergence speed.
-
-GLU Attention can be seamlessly integrated with other technologies, such as Flash Attention\cite{dao2022flashattentionfastmemoryefficientexact}, RoPE\cite{su2023roformerenhancedtransformerrotary}, and various MHA variants like MQA and GQA\cite{ainslie2023gqatraininggeneralizedmultiquery}, by simply adding a GLU function (Equation \ref{eq:glu}) after the value projection function and adjusting some parameters to accommodate the GLU function's property that output dimension is half of the input dimension.
+GLU Attention offers a straightforward improvement to the Transformer Language Model pre-training by introducing nonlinearity into the values of MHA. GLU Attention can be seamlessly integrated with other technologies, such as Flash Attention\cite{dao2022flashattentionfastmemoryefficientexact}, RoPE\cite{su2023roformerenhancedtransformerrotary}, and various MHA variants like MQA and GQA\cite{ainslie2023gqatraininggeneralizedmultiquery}, by simply adding a GLU function (Equation \ref{eq:glu}) after the value projection function and adjusting some parameters to accommodate the GLU function's property that output dimension is half of the input dimension.
 
 \section{Future Work}
 I highly recommend every researcher to test GLU Attention in your Transformers, as it is easy to adopt and provides a nearly cost-free performance boost. Future work could explore its application in different MHA variants with different FFN variants, on more datasets and tasks, as well as its scalability to larger models and datasets.

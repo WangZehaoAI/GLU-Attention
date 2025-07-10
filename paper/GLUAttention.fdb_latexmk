@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex GLUAttention"] 1751779333.11667 "GLUAttention.aux" "GLUAttention.bbl" "GLUAttention" 1751779954.74689 0
+["bibtex GLUAttention"] 1752151139.30704 "GLUAttention.aux" "GLUAttention.bbl" "GLUAttention" 1752165799.82061 0
   "./references.bib" 1749979898.61423 3779 5aff2427dfd09a193e0684e5de1097dd ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "GLUAttention.aux" 1751779954.52208 4178 f1c6bf919df11201a7f150b3dd6ffb68 "pdflatex"
+  "GLUAttention.aux" 1752165799.5683 4178 7edade94fa1c9a65f6d14936fb00561e "pdflatex"
   (generated)
   "GLUAttention.bbl"
   "GLUAttention.blg"
   (rewritten before read)
-["pdflatex"] 1751779953.87175 "/home/wzh/workspace/GLUAttention/paper/GLUAttention.tex" "GLUAttention.pdf" "GLUAttention" 1751779954.74706 0
+["pdflatex"] 1752165798.8063 "/home/wzh/workspace/GLUAttention/paper/GLUAttention.tex" "GLUAttention.pdf" "GLUAttention" 1752165799.82081 0
   "/etc/texmf/web2c/texmf.cnf" 1749703048.64975 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/wzh/workspace/GLUAttention/paper/GLUAttention.tex" 1751779953.67607 9629 d0517f4d9777d65bf736dccca286685a ""
+  "/home/wzh/workspace/GLUAttention/paper/GLUAttention.tex" 1752165798.5653 10195 46b58a68d6a4ded61f73d51f6aac24b2 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -113,16 +113,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1749703065.34086 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1749703162 8215829 9d64d3ce0d1246f324c6f28977686f40 ""
-  "GLUAttention.aux" 1751779954.52208 4178 f1c6bf919df11201a7f150b3dd6ffb68 "pdflatex"
-  "GLUAttention.bbl" 1751779333.19502 2213 c48b967f924362f2688a21ffc9409716 "bibtex GLUAttention"
-  "GLUAttention.out" 1751779954.52308 1396 64c4eb413e92aafe2b8828651397f271 "pdflatex"
-  "GLUAttention.tex" 1751779953.67607 9629 d0517f4d9777d65bf736dccca286685a ""
+  "GLUAttention.aux" 1752165799.5683 4178 7edade94fa1c9a65f6d14936fb00561e "pdflatex"
+  "GLUAttention.bbl" 1752151139.38812 2213 c48b967f924362f2688a21ffc9409716 "bibtex GLUAttention"
+  "GLUAttention.out" 1752165799.5693 1396 7c7bfd466f55f9c0619e177bcd68570c "pdflatex"
+  "GLUAttention.tex" 1752165798.5653 10195 46b58a68d6a4ded61f73d51f6aac24b2 ""
   "GLU_Attention.png" 1751263382.00467 59891 144bc235857c70e831324e12f08b60fc ""
   "arxiv.sty" 1749705923.9722 7538 c3477f5680662c79e16fc4b7553f6c09 ""
-  "cifar10_train_loss.png" 1750097887.19746 33818 c6acdcdda7fd9cbba3b07106659a7beb ""
-  "cifar10_val_acc.png" 1750097887.35646 33219 1cba05b4ee4c14279c89ed0a1d2dccd0 ""
-  "wikitext103_train_loss.png" 1750097887.05845 29305 14bd73b5ea099fab83d4fe376d0b2032 ""
-  "wikitext2_train_loss.png" 1750097886.93645 29754 2604a938dcb0427d48c07581a1863798 ""
+  "cifar10_train_loss.png" 1752164977.20604 37613 591e6efae0df9b7aa133ffd7ac2a7965 ""
+  "cifar10_val_acc.png" 1752164977.35804 38160 0333475361685e14dd9d3ae9c338b2ac ""
+  "wikitext103_train_loss.png" 1752164976.98804 29305 cfdde83207496ac265ad09817098733d ""
+  "wikitext2_train_loss.png" 1752164976.86504 29754 29f41f8ca43d744177463a48aaff2ee2 ""
   (generated)
   "GLUAttention.aux"
   "GLUAttention.log"
